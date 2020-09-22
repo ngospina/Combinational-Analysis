@@ -36,7 +36,7 @@ class MenuProject extends Menu {
 	private LogisimMenuBar menubar;
 	private MyListener myListener = new MyListener();
 	
-	private MenuItemImpl addCircuit = new MenuItemImpl(this, LogisimMenuBar.ADD_CIRCUIT);
+	/*private MenuItemImpl addCircuit = new MenuItemImpl(this, LogisimMenuBar.ADD_CIRCUIT);
 	private JMenu loadLibrary = new JMenu();
 	private JMenuItem loadBuiltin = new JMenuItem();
 	private JMenuItem loadLogisim = new JMenuItem();
@@ -53,12 +53,12 @@ class MenuProject extends Menu {
 	private MenuItemImpl viewSimulation = new MenuItemImpl(this, LogisimMenuBar.VIEW_SIMULATION);
 	private MenuItemImpl analyze = new MenuItemImpl(this, LogisimMenuBar.ANALYZE_CIRCUIT);
 	private MenuItemImpl stats = new MenuItemImpl(this, LogisimMenuBar.CIRCUIT_STATS);
-	private JMenuItem options = new JMenuItem();
+	private JMenuItem options = new JMenuItem();*/
 
 	MenuProject(LogisimMenuBar menubar) {
 		this.menubar = menubar;
 
-		menubar.registerItem(LogisimMenuBar.ADD_CIRCUIT, addCircuit);
+		/*menubar.registerItem(LogisimMenuBar.ADD_CIRCUIT, addCircuit);
 		loadBuiltin.addActionListener(myListener);
 		loadLogisim.addActionListener(myListener);
 		loadJar.addActionListener(myListener);
@@ -100,7 +100,7 @@ class MenuProject extends Menu {
 		addSeparator();
 		add(options);
 
-		/*boolean known = menubar.getProject() != null;
+		boolean known = menubar.getProject() != null;
 		loadLibrary.setEnabled(known);
 		loadBuiltin.setEnabled(known);
 		loadLogisim.setEnabled(known);
@@ -112,7 +112,7 @@ class MenuProject extends Menu {
 	
 	public void localeChanged() {
 		setText(Strings.get("projectMenu"));
-		addCircuit.setText(Strings.get("projectAddCircuitItem"));
+		/*addCircuit.setText(Strings.get("projectAddCircuitItem"));
 		loadLibrary.setText(Strings.get("projectLoadLibraryItem"));
 		loadBuiltin.setText(Strings.get("projectLoadBuiltinItem"));
 		loadLogisim.setText(Strings.get("projectLoadLogisimItem"));
@@ -129,13 +129,13 @@ class MenuProject extends Menu {
 		viewSimulation.setText(Strings.get("projectViewSimulationItem"));
 		analyze.setText(Strings.get("projectAnalyzeCircuitItem"));
 		stats.setText(Strings.get("projectGetCircuitStatisticsItem"));
-		options.setText(Strings.get("projectOptionsItem"));
+		options.setText(Strings.get("projectOptionsItem"));*/
 	}
 	
 	@Override
 	void computeEnabled() {
-		setEnabled(/*menubar.getProject() != null
-				||*/ addCircuit.hasListeners()
+		/*setEnabled(menubar.getProject() != null
+				|| addCircuit.hasListeners()
 				|| moveUp.hasListeners()
 				|| moveDown.hasListeners()
 				|| setAsMain.hasListeners()
@@ -146,7 +146,7 @@ class MenuProject extends Menu {
 				|| viewToolbox.hasListeners()
 				|| viewSimulation.hasListeners()
 				|| analyze.hasListeners()
-				|| stats.hasListeners());
+				|| stats.hasListeners());*/
 		menubar.fireEnableChanged();
 	}
 }

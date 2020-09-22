@@ -53,9 +53,9 @@ class BuildCircuitButton extends JButton {
 		
 		DialogPanel() {
 			/*List<Project> projects = Projects.getOpenProjects();
-			Object[] options = new Object[projects.size()];*/
+			Object[] options = new Object[projects.size()];
 			Object initialSelection = null;
-			/*for (int i = 0; i < options.length; i++) {
+			for (int i = 0; i < options.length; i++) {
 				Project proj = projects.get(i);
 				options[i] = new ProjectItem(proj);
 				if (proj == model.getCurrentProject()) {
@@ -74,7 +74,7 @@ class BuildCircuitButton extends JButton {
 			if (defaultCircuit != null) {
 				name.setText(defaultCircuit.getName());
 				name.selectAll();
-			}*/
+			}
 			
 			VariableList outputs = model.getOutputs();
 			boolean enableNands = true;
@@ -109,13 +109,13 @@ class BuildCircuitButton extends JButton {
 			projectLabel.setText(Strings.get("buildProjectLabel"));
 			nameLabel.setText(Strings.get("buildNameLabel"));
 			twoInputs.setText(Strings.get("buildTwoInputsLabel"));
-			nands.setText(Strings.get("buildNandsLabel"));
+			nands.setText(Strings.get("buildNandsLabel"));*/
 		}
 	}
 	
 	private class MyListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			//Project dest = null;
+			/*Project dest = null;
 			String name = null;
 			boolean twoInputs = false;
 			boolean useNands = false;
@@ -135,7 +135,7 @@ class BuildCircuitButton extends JButton {
 							Strings.get("buildDialogErrorTitle"), JOptionPane.ERROR_MESSAGE);
 					continue;
 				}
-				//dest = projectItem.project;
+				dest = projectItem.project;
 				
 				name = dlog.name.getText().trim();
 				if (name.equals("")) {
@@ -144,7 +144,7 @@ class BuildCircuitButton extends JButton {
 					continue;
 				}
 				
-				/*if (dest.getLogisimFile().getCircuit(name) != null) {
+				if (dest.getLogisimFile().getCircuit(name) != null) {
 					int choice = JOptionPane.showConfirmDialog(parent,
 							StringUtil.format(Strings.get("buildConfirmReplaceMessage"), name),
 							Strings.get("buildConfirmReplaceTitle"), JOptionPane.YES_NO_OPTION);
@@ -152,14 +152,14 @@ class BuildCircuitButton extends JButton {
 						continue;
 					}
 					replace = true;
-				}*/
+				}
 				
 				twoInputs = dlog.twoInputs.isSelected();
 				useNands = dlog.nands.isSelected();
 				ok = true;
 			}
 			
-			//performAction(dest, name, replace, twoInputs, useNands);
+			performAction(dest, name, replace, twoInputs, useNands);*/
 		}
 	}
 	

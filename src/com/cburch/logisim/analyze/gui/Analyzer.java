@@ -63,8 +63,8 @@ public class Analyzer extends LFrame {
 			menubar.addActionListener(LogisimMenuBar.CUT, this);
 			menubar.addActionListener(LogisimMenuBar.COPY, this);
 			menubar.addActionListener(LogisimMenuBar.PASTE, this);
-			menubar.addActionListener(LogisimMenuBar.DELETE, this);
-			menubar.addActionListener(LogisimMenuBar.SELECT_ALL, this);
+			/*menubar.addActionListener(LogisimMenuBar.DELETE, this);
+			menubar.addActionListener(LogisimMenuBar.SELECT_ALL, this);*/
 			tabbedPane.addChangeListener(this);
 			enableItems(menubar);
 		}
@@ -84,10 +84,10 @@ public class Analyzer extends LFrame {
 				tab.copy();
 			} else if (src == LogisimMenuBar.PASTE) {
 				tab.paste();
-			} else if (src == LogisimMenuBar.DELETE) {
+			/*} else if (src == LogisimMenuBar.DELETE) {
 				tab.delete();
 			} else if (src == LogisimMenuBar.SELECT_ALL) {
-				tab.selectAll();
+				tab.selectAll();*/
 			}
 		}
 		
@@ -100,8 +100,8 @@ public class Analyzer extends LFrame {
 			menubar.setEnabled(LogisimMenuBar.CUT, support);
 			menubar.setEnabled(LogisimMenuBar.COPY, support);
 			menubar.setEnabled(LogisimMenuBar.PASTE, support);
-			menubar.setEnabled(LogisimMenuBar.DELETE, support);
-			menubar.setEnabled(LogisimMenuBar.SELECT_ALL, support);
+			/*menubar.setEnabled(LogisimMenuBar.DELETE, support);
+			menubar.setEnabled(LogisimMenuBar.SELECT_ALL, support);*/
 		}
 
 		public void stateChanged(ChangeEvent e) {

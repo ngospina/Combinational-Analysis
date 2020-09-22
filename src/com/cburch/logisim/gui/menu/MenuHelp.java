@@ -21,26 +21,26 @@ import javax.swing.JOptionPane;
 
 class MenuHelp extends JMenu implements ActionListener {
 	private LogisimMenuBar menubar;
-	private JMenuItem tutorial = new JMenuItem();
+	/*private JMenuItem tutorial = new JMenuItem();
 	private JMenuItem guide = new JMenuItem();
-	private JMenuItem library = new JMenuItem();
+	private JMenuItem library = new JMenuItem();*/
 	private JMenuItem about = new JMenuItem();
 	//private HelpSet helpSet;
-	private String helpSetUrl = "";
+	//private String helpSetUrl = "";
 	//private JHelp helpComponent;
 	private LFrame helpFrame;
 
 	public MenuHelp(LogisimMenuBar menubar) {
 		this.menubar = menubar;
 
-		tutorial.addActionListener(this);
+		/*tutorial.addActionListener(this);
 		guide.addActionListener(this);
-		library.addActionListener(this);
+		library.addActionListener(this);*/
 		about.addActionListener(this);
 
-		add(tutorial);
+		/*add(tutorial);
 		add(guide);
-		add(library);
+		add(library);*/
 		if (!MacCompatibility.isAboutAutomaticallyPresent()) {
 			addSeparator();
 			add(about);
@@ -52,9 +52,9 @@ class MenuHelp extends JMenu implements ActionListener {
 		if (helpFrame != null) {
 			helpFrame.setTitle(Strings.get("helpWindowTitle"));
 		}
-		tutorial.setText(Strings.get("helpTutorialItem"));
+		/*tutorial.setText(Strings.get("helpTutorialItem"));
 		guide.setText(Strings.get("helpGuideItem"));
-		library.setText(Strings.get("helpLibraryItem"));
+		library.setText(Strings.get("helpLibraryItem"));*/
 		about.setText(Strings.get("helpAboutItem"));
 		if (helpFrame != null) {
 			helpFrame.setLocale(Locale.getDefault());
@@ -64,21 +64,21 @@ class MenuHelp extends JMenu implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		if (src == guide) {
+		/*if (src == guide) {
 			showHelp("guide");
 		} else if (src == tutorial) {
 			showHelp("tutorial");
 		} else if (src == library) {
 			showHelp("libs");
-		} else if (src == about) {
-			/*About.showAboutDialog(menubar.getParentWindow());*/
+		} else*/ if (src == about) {
+			//About.showAboutDialog(menubar.getParentWindow());
 		}
 	}
 	
 	private void loadBroker() {
 		String helpUrl = Strings.get("helpsetUrl");
 		if (helpUrl == null) helpUrl = "doc/doc_en.hs";
-		if (/*helpSet == null ||*/ helpFrame == null || !helpUrl.equals(helpSetUrl)) {
+		if (/*helpSet == null ||*/ helpFrame == null /*|| !helpUrl.equals(helpSetUrl)*/) {
 			ClassLoader loader = MenuHelp.class.getClassLoader();
 			try {
 				URL hsURL = null; /*HelpSet.findHelpSet(loader, helpUrl)*/;
@@ -88,8 +88,8 @@ class MenuHelp extends JMenu implements ActionListener {
 							Strings.get("helpNotFoundError"));
 					return;
 				}
-				helpSetUrl = helpUrl;
-				/*helpSet = new HelpSet(null, hsURL);
+				/*helpSetUrl = helpUrl;
+				helpSet = new HelpSet(null, hsURL);
 				helpComponent = new JHelp(helpSet);*/
 				if (helpFrame == null) {
 					helpFrame = new LFrame();
@@ -127,8 +127,8 @@ class MenuHelp extends JMenu implements ActionListener {
 	}
 
 	private void disableHelp() {
-		guide.setEnabled(false);
+		/*guide.setEnabled(false);
 		tutorial.setEnabled(false);
-		library.setEnabled(false);
+		library.setEnabled(false);*/
 	}
 }

@@ -21,12 +21,12 @@ import com.cburch.logisim.util.LocaleManager;
 import com.cburch.logisim.util.WindowMenu;
 
 public class LogisimMenuBar extends JMenuBar {
-	public static final LogisimMenuItem PRINT = new LogisimMenuItem("Print");
-	public static final LogisimMenuItem EXPORT_IMAGE = new LogisimMenuItem("ExportImage");
+	/*public static final LogisimMenuItem PRINT = new LogisimMenuItem("Print");
+	public static final LogisimMenuItem EXPORT_IMAGE = new LogisimMenuItem("ExportImage");*/
 	public static final LogisimMenuItem CUT = new LogisimMenuItem("Cut");
 	public static final LogisimMenuItem COPY = new LogisimMenuItem("Copy");
 	public static final LogisimMenuItem PASTE = new LogisimMenuItem("Paste");
-	public static final LogisimMenuItem DELETE = new LogisimMenuItem("Delete");
+	/*public static final LogisimMenuItem DELETE = new LogisimMenuItem("Delete");
 	public static final LogisimMenuItem DUPLICATE = new LogisimMenuItem("Duplicate");
 	public static final LogisimMenuItem SELECT_ALL = new LogisimMenuItem("SelectAll");
 	public static final LogisimMenuItem RAISE = new LogisimMenuItem("Raise");
@@ -52,14 +52,14 @@ public class LogisimMenuBar extends JMenuBar {
 	public static final LogisimMenuItem SIMULATE_ENABLE = new LogisimMenuItem("SimulateEnable");
 	public static final LogisimMenuItem SIMULATE_STEP = new LogisimMenuItem("SimulateStep");
 	public static final LogisimMenuItem TICK_ENABLE = new LogisimMenuItem("TickEnable");
-	public static final LogisimMenuItem TICK_STEP = new LogisimMenuItem("TickStep");
+	public static final LogisimMenuItem TICK_STEP = new LogisimMenuItem("TickStep");*/
 
 	private class MyListener implements LocaleListener {
 		public void localeChanged() {
 			file.localeChanged();
 			edit.localeChanged();
-			project.localeChanged();
-			simulate.localeChanged();
+			/*project.localeChanged();
+			simulate.localeChanged();*/
 			help.localeChanged();
 		}
 	}
@@ -74,8 +74,8 @@ public class LogisimMenuBar extends JMenuBar {
 	
 	private MenuFile file;
 	private MenuEdit edit;
-	private MenuProject project;
-	private MenuSimulate simulate;
+	/*private MenuProject project;
+	private MenuSimulate simulate;*/
 	private MenuHelp help;
 	
 	public LogisimMenuBar(JFrame parent/*, Project proj*/) {
@@ -86,8 +86,8 @@ public class LogisimMenuBar extends JMenuBar {
 		
 		add(file = new MenuFile(this));
 		add(edit = new MenuEdit(this));
-		add(project = new MenuProject(this));
-		add(simulate = new MenuSimulate(this));
+		/*add(project = new MenuProject(this));
+		add(simulate = new MenuSimulate(this));*/
 		add(new WindowMenu(parent));
 		add(help = new MenuHelp(this));
 		

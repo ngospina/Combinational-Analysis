@@ -179,7 +179,7 @@ class MenuSimulate extends Menu {
 	public MenuSimulate(LogisimMenuBar menubar) {
 		this.menubar = menubar;
 		
-		run = new MenuItemCheckImpl(this, LogisimMenuBar.SIMULATE_ENABLE);
+		/*run = new MenuItemCheckImpl(this, LogisimMenuBar.SIMULATE_ENABLE);
 		step = new MenuItemImpl(this, LogisimMenuBar.SIMULATE_STEP);
 		ticksEnabled = new MenuItemCheckImpl(this, LogisimMenuBar.TICK_ENABLE);
 		tickOnce = new MenuItemImpl(this, LogisimMenuBar.TICK_STEP);
@@ -187,7 +187,7 @@ class MenuSimulate extends Menu {
 		menubar.registerItem(LogisimMenuBar.SIMULATE_ENABLE, run);
 		menubar.registerItem(LogisimMenuBar.SIMULATE_STEP, step);
 		menubar.registerItem(LogisimMenuBar.TICK_ENABLE, ticksEnabled);
-		menubar.registerItem(LogisimMenuBar.TICK_STEP, tickOnce);
+		menubar.registerItem(LogisimMenuBar.TICK_STEP, tickOnce);*/
 
 		int menuMask = getToolkit().getMenuShortcutKeyMask();
 		run.setAccelerator(KeyStroke.getKeyStroke(
@@ -231,10 +231,10 @@ class MenuSimulate extends Menu {
 		tickFreq.setEnabled(false);
 		
 		run.addChangeListener(myListener);
-		menubar.addActionListener(LogisimMenuBar.SIMULATE_ENABLE, myListener);
+		/*menubar.addActionListener(LogisimMenuBar.SIMULATE_ENABLE, myListener);
 		menubar.addActionListener(LogisimMenuBar.SIMULATE_STEP, myListener);
 		menubar.addActionListener(LogisimMenuBar.TICK_ENABLE, myListener);
-		menubar.addActionListener(LogisimMenuBar.TICK_STEP, myListener);
+		menubar.addActionListener(LogisimMenuBar.TICK_STEP, myListener);*/
 		// run.addActionListener(myListener);
 		reset.addActionListener(myListener);
 		// step.addActionListener(myListener);

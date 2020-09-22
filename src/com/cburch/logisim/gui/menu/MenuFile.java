@@ -20,7 +20,7 @@ import com.cburch.logisim.util.MacCompatibility;
 
 class MenuFile extends Menu implements ActionListener {
 	private LogisimMenuBar menubar;
-	private JMenuItem newi = new JMenuItem();
+	/*private JMenuItem newi = new JMenuItem();
 	private JMenuItem open = new JMenuItem();
 	private OpenRecent openRecent;
 	private JMenuItem close = new JMenuItem();
@@ -28,16 +28,16 @@ class MenuFile extends Menu implements ActionListener {
 	private JMenuItem saveAs = new JMenuItem();
 	private MenuItemImpl print = new MenuItemImpl(this, LogisimMenuBar.PRINT);
 	private MenuItemImpl exportImage = new MenuItemImpl(this, LogisimMenuBar.EXPORT_IMAGE);
-	private JMenuItem prefs = new JMenuItem();
+	private JMenuItem prefs = new JMenuItem();*/
 	private JMenuItem quit = new JMenuItem();
 
 	public MenuFile(LogisimMenuBar menubar) {
 		this.menubar = menubar;
-		openRecent = new OpenRecent(menubar);
+		//openRecent = new OpenRecent(menubar);
 		
 		int menuMask = getToolkit().getMenuShortcutKeyMask();
 
-		newi.setAccelerator(KeyStroke.getKeyStroke(
+		/*newi.setAccelerator(KeyStroke.getKeyStroke(
 			KeyEvent.VK_N, menuMask));
 		open.setAccelerator(KeyStroke.getKeyStroke(
 			KeyEvent.VK_O, menuMask));
@@ -48,11 +48,11 @@ class MenuFile extends Menu implements ActionListener {
 		saveAs.setAccelerator(KeyStroke.getKeyStroke(
 			KeyEvent.VK_S, menuMask | InputEvent.SHIFT_MASK));
 		print.setAccelerator(KeyStroke.getKeyStroke(
-			KeyEvent.VK_P, menuMask));
+			KeyEvent.VK_P, menuMask));*/
 		quit.setAccelerator(KeyStroke.getKeyStroke(
 				KeyEvent.VK_Q, menuMask));
 
-		add(newi);
+		/*add(newi);
 		add(open);
 		add(openRecent);
 		addSeparator();
@@ -65,33 +65,33 @@ class MenuFile extends Menu implements ActionListener {
 		if (!MacCompatibility.isPreferencesAutomaticallyPresent()) {
 			addSeparator();
 			add(prefs);
-		}
+		}*/
 		if (!MacCompatibility.isQuitAutomaticallyPresent()) {
 			addSeparator();
 			add(quit);
 		}
 
-		//Project proj = menubar.getProject();
+		/*Project proj = menubar.getProject();
 		newi.addActionListener(this);
 		open.addActionListener(this);
-		//if (proj == null) {
+		if (proj == null) {
 			close.setEnabled(false);
 			save.setEnabled(false);
 			saveAs.setEnabled(false);
-		/*} else {
+		} else {
 			close.addActionListener(this);
 			save.addActionListener(this);
 			saveAs.addActionListener(this);
-		}*/
+		}
 		menubar.registerItem(LogisimMenuBar.EXPORT_IMAGE, exportImage);
 		menubar.registerItem(LogisimMenuBar.PRINT, print);
-		prefs.addActionListener(this);
+		prefs.addActionListener(this);*/
 		quit.addActionListener(this);
 	}
 
 	public void localeChanged() {
 		this.setText(Strings.get("fileMenu"));
-		newi.setText(Strings.get("fileNewItem"));
+		/*newi.setText(Strings.get("fileNewItem"));
 		open.setText(Strings.get("fileOpenItem"));
 		openRecent.localeChanged();
 		close.setText(Strings.get("fileCloseItem"));
@@ -99,7 +99,7 @@ class MenuFile extends Menu implements ActionListener {
 		saveAs.setText(Strings.get("fileSaveAsItem"));
 		exportImage.setText(Strings.get("fileExportImageItem"));
 		print.setText(Strings.get("filePrintItem"));
-		prefs.setText(Strings.get("filePreferencesItem"));
+		prefs.setText(Strings.get("filePreferencesItem"));*/
 		quit.setText(Strings.get("fileQuitItem"));
 	}
 
