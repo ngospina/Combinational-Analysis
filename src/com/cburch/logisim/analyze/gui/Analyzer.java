@@ -166,7 +166,7 @@ public class Analyzer extends LFrame {
 		LocaleManager.addLocaleListener(myListener);
 		myListener.localeChanged();
 		
-		LogisimMenuBar menubar = new LogisimMenuBar(this, null);
+		LogisimMenuBar menubar = new LogisimMenuBar(this/*, null*/);
 		setJMenuBar(menubar);
 		editListener.register(menubar);
 	}

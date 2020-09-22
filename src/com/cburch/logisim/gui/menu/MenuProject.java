@@ -10,14 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import com.cburch.logisim.proj.Project;
+//import com.cburch.logisim.proj.Project;
 
 class MenuProject extends Menu {
 	private class MyListener
 			implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			Object src = event.getSource();
-			Project proj = menubar.getProject();
+			/*Project proj = menubar.getProject();
 			if (src == loadBuiltin) {
 				ProjectLibraryActions.doLoadBuiltinLibrary(proj);
 			} else if (src == loadLogisim) {
@@ -29,7 +29,7 @@ class MenuProject extends Menu {
 			} else if (src == options) {
 				JFrame frame = proj.getOptionsFrame(true);
 				frame.setVisible(true);
-			}
+			}*/
 		}
 	}
 	
@@ -100,13 +100,13 @@ class MenuProject extends Menu {
 		addSeparator();
 		add(options);
 
-		boolean known = menubar.getProject() != null;
+		/*boolean known = menubar.getProject() != null;
 		loadLibrary.setEnabled(known);
 		loadBuiltin.setEnabled(known);
 		loadLogisim.setEnabled(known);
 		loadJar.setEnabled(known);
 		unload.setEnabled(known);
-		options.setEnabled(known);
+		options.setEnabled(known);*/
 		computeEnabled();
 	}
 	
@@ -134,8 +134,8 @@ class MenuProject extends Menu {
 	
 	@Override
 	void computeEnabled() {
-		setEnabled(menubar.getProject() != null
-				|| addCircuit.hasListeners()
+		setEnabled(/*menubar.getProject() != null
+				||*/ addCircuit.hasListeners()
 				|| moveUp.hasListeners()
 				|| moveDown.hasListeners()
 				|| setAsMain.hasListeners()

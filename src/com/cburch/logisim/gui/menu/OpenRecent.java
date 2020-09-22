@@ -17,8 +17,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import com.cburch.logisim.prefs.AppPreferences;
-import com.cburch.logisim.proj.Project;
-import com.cburch.logisim.proj.ProjectActions;
+/*import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.proj.ProjectActions;*/
 
 class OpenRecent extends JMenu implements PropertyChangeListener {
 	private static final int MAX_ITEM_LENGTH = 50;
@@ -34,9 +34,9 @@ class OpenRecent extends JMenu implements PropertyChangeListener {
 		}
 		
 		public void actionPerformed(ActionEvent event) {
-			Project proj = menubar.getProject();
+			/*Project proj = menubar.getProject();
 			Component par = proj == null ? null : proj.getFrame().getCanvas();
-			ProjectActions.doOpen(par, proj, file);
+			ProjectActions.doOpen(par, proj, file);*/
 		}
 	}
 	

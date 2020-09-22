@@ -9,27 +9,52 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import com.cburch.logisim.data.Attribute;
+/*import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeEvent;
 import com.cburch.logisim.data.AttributeListener;
-import com.cburch.logisim.data.AttributeSet;
+import com.cburch.logisim.data.AttributeSet;*/
 
 public abstract class AttributeSetTableModel
-		implements AttrTableModel, AttributeListener {
+		implements AttrTableModel/*, AttributeListener*/ {
 	private class AttrRow implements AttrTableModelRow {
-		private Attribute<Object> attr;
+
+        @Override
+        public String getLabel() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public String getValue() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean isValueEditable() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Component getEditor(Window parent) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void setValue(Object value) throws AttrTableSetException {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+		//private Attribute<Object> attr;
 		
-		AttrRow(Attribute<?> attr) {
+		/*AttrRow(Attribute<?> attr) {
 			@SuppressWarnings("unchecked")
 			Attribute<Object> objAttr = (Attribute<Object>) attr;
 			this.attr = objAttr;
-		}
+		}*/
 		
-		public String getLabel() {
+		/*public String getLabel() {
 			return attr.getDisplayName();
-		}
+		}*/
 		
-		public String getValue() {
+		/*public String getValue() {
 			Object value = attrs.getValue(attr);
 			if (value == null) {
 				return "";
@@ -40,18 +65,18 @@ public abstract class AttributeSetTableModel
 					return "???";
 				}
 			}
-		}
+		}*/
 		
-		public boolean isValueEditable() {
+		/*public boolean isValueEditable() {
 			return !attrs.isReadOnly(attr);
-		}
+		}*/
 		
-		public Component getEditor(Window parent) {
+		/*public Component getEditor(Window parent) {
 			Object value = attrs.getValue(attr);
 			return attr.getCellEditor(parent, value);
-		}
+		}*/
 		
-		public void setValue(Object value) throws AttrTableSetException {
+		/*public void setValue(Object value) throws AttrTableSetException {
 			Attribute<Object> attr = this.attr;
 			if (attr == null || value == null) return;
 			
@@ -71,15 +96,15 @@ public abstract class AttributeSetTableModel
 				msg += ".";
 				throw new AttrTableSetException(msg);
 			}
-		}
+		}*/
 	}
 	
 	private ArrayList<AttrTableModelListener> listeners;
-	private AttributeSet attrs;
-	private HashMap<Attribute<?>, AttrRow> rowMap;
+	/*private AttributeSet attrs;
+	private HashMap<Attribute<?>, AttrRow> rowMap;*/
 	private ArrayList<AttrRow> rows;
 	
-	public AttributeSetTableModel(AttributeSet attrs) {
+	/*public AttributeSetTableModel(AttributeSet attrs) {
 		this.attrs = attrs;
 		this.listeners = new ArrayList<AttrTableModelListener>();
 		this.rowMap = new HashMap<Attribute<?>, AttrRow>();
@@ -91,15 +116,15 @@ public abstract class AttributeSetTableModel
 				rows.add(row);
 			}
 		}
-	}
+	}*/
 	
 	public abstract String getTitle();
 	
-	public AttributeSet getAttributeSet() {
+	/*public AttributeSet getAttributeSet() {
 		return attrs;
-	}
+	}*/
 	
-	public void setAttributeSet(AttributeSet value) {
+	/*public void setAttributeSet(AttributeSet value) {
 		if (attrs != value) {
 			if (!listeners.isEmpty()) {
 				attrs.removeAttributeListener(this);
@@ -110,19 +135,19 @@ public abstract class AttributeSetTableModel
 			}
 			attributeListChanged(null);
 		}
-	}
+	}*/
 
 	public void addAttrTableModelListener(AttrTableModelListener listener) {
-		if (listeners.isEmpty() && attrs != null) {
-			attrs.addAttributeListener(this);
+		if (listeners.isEmpty() /*&& attrs != null*/) {
+			//attrs.addAttributeListener(this);
 		}
 		listeners.add(listener);
 	}
 
 	public void removeAttrTableModelListener(AttrTableModelListener listener) {
 		listeners.remove(listener);
-		if (listeners.isEmpty() && attrs != null) {
-			attrs.removeAttributeListener(this);
+		if (listeners.isEmpty() /*&& attrs != null*/) {
+			//attrs.removeAttributeListener(this);
 		}
 	}
 	
@@ -155,13 +180,13 @@ public abstract class AttributeSetTableModel
 		return rows.get(rowIndex);
 	}
 
-	protected abstract void setValueRequested(Attribute<Object> attr, Object value)
-		throws AttrTableSetException;
+	/*protected abstract void setValueRequested(Attribute<Object> attr, Object value)
+		throws AttrTableSetException;*/
 	
 	//
 	// AttributeListener methods
 	//
-	public void attributeListChanged(AttributeEvent e) {
+	/*public void attributeListChanged(AttributeEvent e) {
 		// if anything has changed, don't do anything
 		int index = 0;
 		boolean match = true;
@@ -194,9 +219,9 @@ public abstract class AttributeSetTableModel
 		}
 
 		fireStructureChanged();
-	}
+	}*/
 
-	public void attributeValueChanged(AttributeEvent e) {
+	/*public void attributeValueChanged(AttributeEvent e) {
 		Attribute<?> attr = e.getAttribute();
 		AttrTableModelRow row = rowMap.get(attr);
 		if (row != null) {
@@ -205,6 +230,6 @@ public abstract class AttributeSetTableModel
 				fireValueChanged(index);
 			}
 		}
-	}
+	}*/
 
 }

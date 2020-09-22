@@ -10,15 +10,15 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import com.cburch.logisim.proj.Action;
+/*import com.cburch.logisim.proj.Action;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
-import com.cburch.logisim.proj.ProjectListener;
+import com.cburch.logisim.proj.ProjectListener;*/
 import com.cburch.logisim.util.StringUtil;
 
 class MenuEdit extends Menu {
-	private class MyListener implements ProjectListener, ActionListener {
-		public void projectChanged(ProjectEvent e) {
+	private class MyListener implements /*ProjectListener,*/ ActionListener {
+		/*public void projectChanged(ProjectEvent e) {
 			Project proj = menubar.getProject();
 			Action last = proj == null ? null : proj.getLastAction();
 			if (last == null) {
@@ -29,14 +29,14 @@ class MenuEdit extends Menu {
 					last.getName()));
 				undo.setEnabled(true);
 			}
-		}
+		}*/
 
 		public void actionPerformed(ActionEvent e) {
 			Object src = e.getSource();
-			Project proj = menubar.getProject();
+			/*Project proj = menubar.getProject();
 			if (src == undo) {
 				if (proj != null) proj.undoAction();
-			}
+			}*/
 		}
 	}
 
@@ -101,11 +101,11 @@ class MenuEdit extends Menu {
 		add(addCtrl);
 		add(remCtrl);
 		
-		Project proj = menubar.getProject();
+		/*Project proj = menubar.getProject();
 		if (proj != null) {
 			proj.addProjectListener(myListener);
 			undo.addActionListener(myListener);
-		}
+		}*/
 
 		undo.setEnabled(false);
 		menubar.registerItem(LogisimMenuBar.CUT, cut);
@@ -125,7 +125,7 @@ class MenuEdit extends Menu {
 
 	public void localeChanged() {
 		this.setText(Strings.get("editMenu"));
-		myListener.projectChanged(null);
+		//myListener.projectChanged(null);
 		cut.setText(Strings.get("editCutItem"));
 		copy.setText(Strings.get("editCopyItem"));
 		paste.setText(Strings.get("editPasteItem"));
@@ -142,8 +142,8 @@ class MenuEdit extends Menu {
 	
 	@Override
 	void computeEnabled() {
-		setEnabled(menubar.getProject() != null
-				|| cut.hasListeners()
+		setEnabled(/*menubar.getProject() != null
+				||*/ cut.hasListeners()
 				|| copy.hasListeners()
 				|| paste.hasListeners()
 				|| delete.hasListeners()

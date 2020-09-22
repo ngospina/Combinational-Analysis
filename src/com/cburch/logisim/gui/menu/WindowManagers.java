@@ -14,13 +14,13 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import com.cburch.logisim.analyze.gui.AnalyzerManager;
-import com.cburch.logisim.file.LibraryEvent;
+/*import com.cburch.logisim.file.LibraryEvent;
 import com.cburch.logisim.file.LibraryListener;
 import com.cburch.logisim.gui.prefs.PreferencesFrame;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
-import com.cburch.logisim.proj.Projects;
+import com.cburch.logisim.proj.Projects;*/
 import com.cburch.logisim.util.WindowMenuItemManager;
 
 public class WindowManagers {
@@ -30,16 +30,16 @@ public class WindowManagers {
 		if (!initialized) {
 			initialized = true;
 			AnalyzerManager.initialize();
-			PreferencesFrame.initializeManager();
-			Projects.addPropertyChangeListener(Projects.projectListProperty, myListener);
+			/*PreferencesFrame.initializeManager();
+			Projects.addPropertyChangeListener(Projects.projectListProperty, myListener);*/
 			computeListeners();
 		}
 	}
 	
 	private static boolean initialized = false;
 	private static MyListener myListener = new MyListener();
-	private static HashMap<Project,ProjectManager> projectMap
-		= new LinkedHashMap<Project,ProjectManager>();
+	/*private static HashMap<Project,ProjectManager> projectMap
+		= new LinkedHashMap<Project,ProjectManager>();*/
 	
 	private static class MyListener implements PropertyChangeListener {
 		public void propertyChange(PropertyChangeEvent event) {
@@ -48,37 +48,46 @@ public class WindowManagers {
 	}
 
 	private static class ProjectManager extends WindowMenuItemManager
-			implements ProjectListener, LibraryListener {
-		private Project proj;
+			/*implements ProjectListener, LibraryListener*/ {
+
+        public ProjectManager(String text, boolean persistent) {
+            super(text, persistent);
+        }
+
+        @Override
+        public JFrame getJFrame(boolean create) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+		//private Project proj;
 		
-		ProjectManager(Project proj) {
+		/*ProjectManager(Project proj) {
 			super(proj.getLogisimFile().getName(), false);
 			this.proj = proj;
 			proj.addProjectListener(this);
 			proj.addLibraryListener(this);
 			frameOpened(proj.getFrame());
-		}
+		}*/
 		
-		@Override
+		/*@Override
 		public JFrame getJFrame(boolean create) {
 			return proj.getFrame();
-		}
+		}*/
 		
-		public void projectChanged(ProjectEvent event) {
+		/*public void projectChanged(ProjectEvent event) {
 			if (event.getAction() == ProjectEvent.ACTION_SET_FILE) {
 				setText(proj.getLogisimFile().getName());
 			}
-		}
+		}*/
 
-		public void libraryChanged(LibraryEvent event) {
+		/*public void libraryChanged(LibraryEvent event) {
 			if (event.getAction() == LibraryEvent.SET_NAME) {
 				setText((String) event.getData());
 			}           
-		}
+		}*/
 	}
 	
 	private static void computeListeners() {
-		List<Project> nowOpen = Projects.getOpenProjects();
+		/*List<Project> nowOpen = Projects.getOpenProjects();
 		
 		HashSet<Project> closed = new HashSet<Project>(projectMap.keySet());
 		closed.removeAll(nowOpen);
@@ -93,6 +102,6 @@ public class WindowManagers {
 		for (Project proj : opened) {
 			ProjectManager manager = new ProjectManager(proj);
 			projectMap.put(proj, manager);
-		}
+		}*/
 	}
 }

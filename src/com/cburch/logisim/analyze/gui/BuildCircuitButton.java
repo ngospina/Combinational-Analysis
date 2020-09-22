@@ -21,26 +21,26 @@ import javax.swing.JTextField;
 import com.cburch.logisim.analyze.model.AnalyzerModel;
 import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.VariableList;
-import com.cburch.logisim.circuit.Circuit;
+/*import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitMutation;
 import com.cburch.logisim.file.LogisimFileActions;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.Projects;
-import com.cburch.logisim.std.gates.CircuitBuilder;
+import com.cburch.logisim.std.gates.CircuitBuilder;*/
 import com.cburch.logisim.util.StringUtil;
 
 class BuildCircuitButton extends JButton {
 	private static class ProjectItem {
-		Project project;
+		//Project project;
 		
-		ProjectItem(Project project) {
+		/*ProjectItem(Project project) {
 			this.project = project;
-		}
+		}*/
 		
-		@Override
+		/*@Override
 		public String toString() {
 			return project.getLogisimFile().getDisplayName();
-		}
+		}*/
 	}
 	
 	private class DialogPanel extends JPanel {
@@ -52,10 +52,10 @@ class BuildCircuitButton extends JButton {
 		private JCheckBox nands = new JCheckBox();
 		
 		DialogPanel() {
-			List<Project> projects = Projects.getOpenProjects();
-			Object[] options = new Object[projects.size()];
+			/*List<Project> projects = Projects.getOpenProjects();
+			Object[] options = new Object[projects.size()];*/
 			Object initialSelection = null;
-			for (int i = 0; i < options.length; i++) {
+			/*for (int i = 0; i < options.length; i++) {
 				Project proj = projects.get(i);
 				options[i] = new ProjectItem(proj);
 				if (proj == model.getCurrentProject()) {
@@ -74,7 +74,7 @@ class BuildCircuitButton extends JButton {
 			if (defaultCircuit != null) {
 				name.setText(defaultCircuit.getName());
 				name.selectAll();
-			}
+			}*/
 			
 			VariableList outputs = model.getOutputs();
 			boolean enableNands = true;
@@ -115,7 +115,7 @@ class BuildCircuitButton extends JButton {
 	
 	private class MyListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			Project dest = null;
+			//Project dest = null;
 			String name = null;
 			boolean twoInputs = false;
 			boolean useNands = false;
@@ -135,7 +135,7 @@ class BuildCircuitButton extends JButton {
 							Strings.get("buildDialogErrorTitle"), JOptionPane.ERROR_MESSAGE);
 					continue;
 				}
-				dest = projectItem.project;
+				//dest = projectItem.project;
 				
 				name = dlog.name.getText().trim();
 				if (name.equals("")) {
@@ -144,7 +144,7 @@ class BuildCircuitButton extends JButton {
 					continue;
 				}
 				
-				if (dest.getLogisimFile().getCircuit(name) != null) {
+				/*if (dest.getLogisimFile().getCircuit(name) != null) {
 					int choice = JOptionPane.showConfirmDialog(parent,
 							StringUtil.format(Strings.get("buildConfirmReplaceMessage"), name),
 							Strings.get("buildConfirmReplaceTitle"), JOptionPane.YES_NO_OPTION);
@@ -152,14 +152,14 @@ class BuildCircuitButton extends JButton {
 						continue;
 					}
 					replace = true;
-				}
+				}*/
 				
 				twoInputs = dlog.twoInputs.isSelected();
 				useNands = dlog.nands.isSelected();
 				ok = true;
 			}
 			
-			performAction(dest, name, replace, twoInputs, useNands);
+			//performAction(dest, name, replace, twoInputs, useNands);
 		}
 	}
 	
@@ -177,7 +177,7 @@ class BuildCircuitButton extends JButton {
 		setText(Strings.get("buildCircuitButton"));
 	}
 	
-	private void performAction(Project dest, String name, boolean replace,
+	/*private void performAction(Project dest, String name, boolean replace,
 			final boolean twoInputs, final boolean useNands) {
 		if (replace) {
 			final Circuit circuit = dest.getLogisimFile().getCircuit(name);
@@ -200,5 +200,5 @@ class BuildCircuitButton extends JButton {
 			dest.doAction(LogisimFileActions.addCircuit(circuit));
 			dest.setCurrentCircuit(circuit);
 		}
-	}
+	}*/
 }

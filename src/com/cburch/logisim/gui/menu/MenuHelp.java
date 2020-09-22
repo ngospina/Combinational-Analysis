@@ -4,7 +4,7 @@
 package com.cburch.logisim.gui.menu;
 
 import com.cburch.logisim.gui.generic.LFrame;
-import com.cburch.logisim.gui.start.About;
+//import com.cburch.logisim.gui.start.About;
 import com.cburch.logisim.util.MacCompatibility;
 
 import java.awt.event.ActionEvent;
@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Locale;
 
-import javax.help.HelpSet;
-import javax.help.JHelp;
+/*import javax.help.HelpSet;
+import javax.help.JHelp;*/
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -25,9 +25,9 @@ class MenuHelp extends JMenu implements ActionListener {
 	private JMenuItem guide = new JMenuItem();
 	private JMenuItem library = new JMenuItem();
 	private JMenuItem about = new JMenuItem();
-	private HelpSet helpSet;
+	//private HelpSet helpSet;
 	private String helpSetUrl = "";
-	private JHelp helpComponent;
+	//private JHelp helpComponent;
 	private LFrame helpFrame;
 
 	public MenuHelp(LogisimMenuBar menubar) {
@@ -71,17 +71,17 @@ class MenuHelp extends JMenu implements ActionListener {
 		} else if (src == library) {
 			showHelp("libs");
 		} else if (src == about) {
-			About.showAboutDialog(menubar.getParentWindow());
+			/*About.showAboutDialog(menubar.getParentWindow());*/
 		}
 	}
 	
 	private void loadBroker() {
 		String helpUrl = Strings.get("helpsetUrl");
 		if (helpUrl == null) helpUrl = "doc/doc_en.hs";
-		if (helpSet == null || helpFrame == null || !helpUrl.equals(helpSetUrl)) {
+		if (/*helpSet == null ||*/ helpFrame == null || !helpUrl.equals(helpSetUrl)) {
 			ClassLoader loader = MenuHelp.class.getClassLoader();
 			try {
-				URL hsURL = HelpSet.findHelpSet(loader, helpUrl);
+				URL hsURL = null; /*HelpSet.findHelpSet(loader, helpUrl)*/;
 				if (hsURL == null) {
 					disableHelp();
 					JOptionPane.showMessageDialog(menubar.getParentWindow(),
@@ -89,18 +89,18 @@ class MenuHelp extends JMenu implements ActionListener {
 					return;
 				}
 				helpSetUrl = helpUrl;
-				helpSet = new HelpSet(null, hsURL);
-				helpComponent = new JHelp(helpSet);
+				/*helpSet = new HelpSet(null, hsURL);
+				helpComponent = new JHelp(helpSet);*/
 				if (helpFrame == null) {
 					helpFrame = new LFrame();
 					helpFrame.setTitle(Strings.get("helpWindowTitle"));
 					helpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-					helpFrame.getContentPane().add(helpComponent);
+					//helpFrame.getContentPane().add(helpComponent);
 					helpFrame.pack();
 				} else {
 					helpFrame.getContentPane().removeAll();
-					helpFrame.getContentPane().add(helpComponent);
-					helpComponent.revalidate();
+					/*helpFrame.getContentPane().add(helpComponent);
+					helpComponent.revalidate();*/
 				}
 			} catch (Exception e) {
 				disableHelp();
@@ -115,7 +115,7 @@ class MenuHelp extends JMenu implements ActionListener {
 	private void showHelp(String target) {
 		loadBroker();
 		try {
-			helpComponent.setCurrentID(target);
+			//helpComponent.setCurrentID(target);
 			helpFrame.toFront();
 			helpFrame.setVisible(true);
 		} catch (Exception e) {

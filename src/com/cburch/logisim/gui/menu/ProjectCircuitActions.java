@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import com.cburch.logisim.analyze.gui.Analyzer;
 import com.cburch.logisim.analyze.gui.AnalyzerManager;
 import com.cburch.logisim.analyze.model.AnalyzerModel;
-import com.cburch.logisim.circuit.Analyze;
+/*import com.cburch.logisim.circuit.Analyze;
 import com.cburch.logisim.circuit.AnalyzeException;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.file.LogisimFileActions;
@@ -30,22 +30,22 @@ import com.cburch.logisim.instance.StdAttr;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.std.wiring.Pin;
 import com.cburch.logisim.tools.AddTool;
-import com.cburch.logisim.tools.Library;
+import com.cburch.logisim.tools.Library;*/
 import com.cburch.logisim.util.StringUtil;
 
 public class ProjectCircuitActions {
 	private ProjectCircuitActions() { }
 	
-	public static void doAddCircuit(Project proj) {
+	/*public static void doAddCircuit(Project proj) {
 		String name = promptForCircuitName(proj.getFrame(), proj.getLogisimFile(), "");
 		if (name != null) {
 			Circuit circuit = new Circuit(name);
 			proj.doAction(LogisimFileActions.addCircuit(circuit));
 			proj.setCurrentCircuit(circuit);
 		}
-	}
+	}*/
 
-	private static String promptForCircuitName(JFrame frame,
+	/*private static String promptForCircuitName(JFrame frame,
 			Library lib, String initialValue) {
 		JLabel label = new JLabel(Strings.get("circuitNamePrompt"));
 		final JTextField field = new JTextField(15);
@@ -99,9 +99,9 @@ public class ProjectCircuitActions {
 				}
 			}
 		}
-	}
+	}*/
 
-	public static void doMoveCircuit(Project proj, Circuit cur, int delta) {
+	/*public static void doMoveCircuit(Project proj, Circuit cur, int delta) {
 		AddTool tool = proj.getLogisimFile().getAddTool(cur);
 		if (tool != null) {
 			int oldPos = proj.getLogisimFile().getCircuits().indexOf(cur);
@@ -111,13 +111,13 @@ public class ProjectCircuitActions {
 				proj.doAction(LogisimFileActions.moveCircuit(tool, newPos));
 			}
 		}
-	}
+	}*/
 
-	public static void doSetAsMainCircuit(Project proj, Circuit circuit) {
+	/*public static void doSetAsMainCircuit(Project proj, Circuit circuit) {
 		proj.doAction(LogisimFileActions.setMainCircuit(circuit));
-	}
+	}*/
 
-	public static void doRemoveCircuit(Project proj, Circuit circuit) {
+	/*public static void doRemoveCircuit(Project proj, Circuit circuit) {
 		if (proj.getLogisimFile().getTools().size() == 1) {
 			JOptionPane.showMessageDialog(proj.getFrame(),
 					Strings.get("circuitRemoveLastError"),
@@ -131,9 +131,9 @@ public class ProjectCircuitActions {
 		} else {
 			proj.doAction(LogisimFileActions.removeCircuit(circuit));
 		}
-	}
+	}*/
 	
-	public static void doAnalyze(Project proj, Circuit circuit) {
+	/*public static void doAnalyze(Project proj, Circuit circuit) {
 		Map<Instance, String> pinNames = Analyze.getPinLabels(circuit);
 		ArrayList<String> inputNames = new ArrayList<String>();
 		ArrayList<String> outputNames = new ArrayList<String>();
@@ -170,9 +170,9 @@ public class ProjectCircuitActions {
 		configureAnalyzer(proj, circuit, analyzer, pinNames, inputNames, outputNames);
 		analyzer.setVisible(true);
 		analyzer.toFront();
-	}
+	}*/
 	
-	private static void configureAnalyzer(Project proj, Circuit circuit,
+	/*private static void configureAnalyzer(Project proj, Circuit circuit,
 			Analyzer analyzer, Map<Instance, String> pinNames,
 			ArrayList<String> inputNames, ArrayList<String> outputNames) {
 		analyzer.getModel().setVariables(inputNames, outputNames);
@@ -203,12 +203,12 @@ public class ProjectCircuitActions {
 		// As a backup measure, we compute a truth table.
 		Analyze.computeTable(analyzer.getModel(), proj, circuit, pinNames);
 		analyzer.setSelectedTab(Analyzer.TABLE_TAB);
-	}
+	}*/
 		
-	private static void analyzeError(Project proj, String message) {
+	/*private static void analyzeError(Project proj, String message) {
 		JOptionPane.showMessageDialog(proj.getFrame(), message,
 			Strings.get("analyzeErrorTitle"),
 			JOptionPane.ERROR_MESSAGE);
 		return;
-	}
+	}*/
 }

@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import com.cburch.logisim.data.Direction;
+//import com.cburch.logisim.data.Direction;
 
 public class Icons {
 	private static final String path = "resources/logisim/icons";
@@ -23,7 +23,7 @@ public class Icons {
 		return new ImageIcon(url);
 	}
 
-	public static void paintRotated(Graphics g, int x, int y, Direction dir, Icon icon, Component dest) {
+	/*public static void paintRotated(Graphics g, int x, int y, Direction dir, Icon icon, Component dest) {
 		if (!(g instanceof Graphics2D) || dir == Direction.EAST) {
 			icon.paintIcon(dest, g, x, y);
 			return;
@@ -43,5 +43,5 @@ public class Icons {
 		}
 		icon.paintIcon(dest, g2, x, y);
 		g2.dispose();
-	}
+	}*/
 }

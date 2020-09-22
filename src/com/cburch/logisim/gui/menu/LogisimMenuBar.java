@@ -13,9 +13,9 @@ import javax.swing.JMenuBar;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import com.cburch.logisim.circuit.CircuitState;
+/*import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.Simulator;
-import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.proj.Project;*/
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
 import com.cburch.logisim.util.WindowMenu;
@@ -66,7 +66,7 @@ public class LogisimMenuBar extends JMenuBar {
 	
 	private JFrame parent;
 	private MyListener listener;
-	private Project proj;
+	//private Project proj;
 	private SimulateListener simulateListener = null;
 	private HashMap<LogisimMenuItem,MenuItem> menuItems
 		= new HashMap<LogisimMenuItem,MenuItem>();
@@ -78,10 +78,10 @@ public class LogisimMenuBar extends JMenuBar {
 	private MenuSimulate simulate;
 	private MenuHelp help;
 	
-	public LogisimMenuBar(JFrame parent, Project proj) {
+	public LogisimMenuBar(JFrame parent/*, Project proj*/) {
 		this.parent = parent;
 		this.listener = new MyListener();
-		this.proj = proj;
+		//this.proj = proj;
 		this.enableListeners = new ArrayList<ChangeListener>();
 		
 		add(file = new MenuFile(this));
@@ -129,13 +129,13 @@ public class LogisimMenuBar extends JMenuBar {
 		simulateListener = l;
 	}
 	
-	public void setCircuitState(Simulator sim, CircuitState state) {
+	/*public void setCircuitState(Simulator sim, CircuitState state) {
 		simulate.setCurrentState(sim, state);
 	}
 
 	public Project getProject() {
 		return proj;
-	}
+	}*/
 	
 	JFrame getParentWindow() {
 		return parent;
@@ -145,11 +145,11 @@ public class LogisimMenuBar extends JMenuBar {
 		menuItems.put(which, item);
 	}
 	
-	void fireStateChanged(Simulator sim, CircuitState state) {
+	/*void fireStateChanged(Simulator sim, CircuitState state) {
 		if (simulateListener != null) {
 			simulateListener.stateChangeRequested(sim, state);
 		}
-	}
+	}*/
 	
 	public void doAction(LogisimMenuItem which) {
 		MenuItem item = menuItems.get(which);

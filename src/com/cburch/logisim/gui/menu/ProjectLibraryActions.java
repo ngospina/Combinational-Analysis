@@ -15,23 +15,23 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
-import com.cburch.logisim.file.Loader;
+/*import com.cburch.logisim.file.Loader;
 import com.cburch.logisim.file.LogisimFile;
 import com.cburch.logisim.file.LogisimFileActions;
 import com.cburch.logisim.proj.Project;
-import com.cburch.logisim.tools.Library;
+import com.cburch.logisim.tools.Library;*/
 
 public class ProjectLibraryActions {
 	private ProjectLibraryActions() { }
 	
-	private static class BuiltinOption {
+	/*private static class BuiltinOption {
 		Library lib;
 		BuiltinOption(Library lib) { this.lib = lib; }
 		@Override
 		public String toString() { return lib.getDisplayName(); }
-	}
+	}*/
 	
-	private static class LibraryJList extends JList {
+	/*private static class LibraryJList extends JList {
 		LibraryJList(List<Library> libraries) {
 			ArrayList<BuiltinOption> options = new ArrayList<BuiltinOption>();
 			for (Library lib : libraries) {
@@ -52,9 +52,9 @@ public class ProjectLibraryActions {
 				return null;
 			}
 		}
-	}
+	}*/
 
-	public static void doLoadBuiltinLibrary(Project proj) {
+	/*public static void doLoadBuiltinLibrary(Project proj) {
 		LogisimFile file = proj.getLogisimFile();
 		List<Library> baseBuilt = file.getLoader().getBuiltin().getLibraries();
 		ArrayList<Library> builtins = new ArrayList<Library>(baseBuilt);
@@ -75,9 +75,9 @@ public class ProjectLibraryActions {
 			Library[] libs = list.getSelectedLibraries();
 			if (libs != null) proj.doAction(LogisimFileActions.loadLibraries(libs));
 		}
-	}
+	}*/
 	
-	public static void doLoadLogisimLibrary(Project proj) {
+	/*public static void doLoadLogisimLibrary(Project proj) {
 		Loader loader = proj.getLogisimFile().getLoader();
 		JFileChooser chooser = loader.createChooser();
 		chooser.setDialogTitle(Strings.get("loadLogisimDialogTitle"));
@@ -90,9 +90,9 @@ public class ProjectLibraryActions {
 				proj.doAction(LogisimFileActions.loadLibrary(lib));
 			}
 		}
-	}
+	}*/
 	
-	public static void doLoadJarLibrary(Project proj) {
+	/*public static void doLoadJarLibrary(Project proj) {
 		Loader loader = proj.getLogisimFile().getLoader();
 		JFileChooser chooser = loader.createChooser();
 		chooser.setDialogTitle(Strings.get("loadJarDialogTitle"));
@@ -133,9 +133,9 @@ public class ProjectLibraryActions {
 				proj.doAction(LogisimFileActions.loadLibrary(lib));
 			}
 		}
-	}
+	}*/
 	
-	public static void doUnloadLibraries(Project proj) {
+	/*public static void doUnloadLibraries(Project proj) {
 		LogisimFile file = proj.getLogisimFile();
 		ArrayList<Library> canUnload = new ArrayList<Library>();
 		for (Library lib : file.getLibraries()) {
@@ -158,9 +158,9 @@ public class ProjectLibraryActions {
 			Library[] libs = list.getSelectedLibraries();
 			if (libs != null) proj.doAction(LogisimFileActions.unloadLibraries(libs));
 		}
-	}
+	}*/
 
-	public static void doUnloadLibrary(Project proj, Library lib) {
+	/*public static void doUnloadLibrary(Project proj, Library lib) {
 		String message = proj.getLogisimFile().getUnloadLibraryMessage(lib);
 		if (message != null) {
 			JOptionPane.showMessageDialog(proj.getFrame(), message,
@@ -168,5 +168,5 @@ public class ProjectLibraryActions {
 		} else {
 			proj.doAction(LogisimFileActions.unloadLibrary(lib));
 		}
-	}
+	}*/
 }

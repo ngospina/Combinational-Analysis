@@ -18,9 +18,9 @@ import java.util.prefs.Preferences;
 import javax.swing.JFrame;
 
 import com.cburch.logisim.Main;
-import com.cburch.logisim.circuit.RadixOption;
+/*import com.cburch.logisim.circuit.RadixOption;
 import com.cburch.logisim.data.Direction;
-import com.cburch.logisim.gui.start.Startup;
+import com.cburch.logisim.gui.start.Startup;*/
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
 import com.cburch.logisim.util.PropertyChangeWeakSupport;
@@ -71,12 +71,12 @@ public class AppPreferences {
 	
 	public static final PrefMonitor<Boolean> SHOW_TICK_RATE
 		= create(new PrefMonitorBoolean("showTickRate", false));
-	public static final PrefMonitor<String> TOOLBAR_PLACEMENT
+	/*public static final PrefMonitor<String> TOOLBAR_PLACEMENT
 		= create(new PrefMonitorStringOpts("toolbarPlacement", new String[] {
 					Direction.NORTH.toString(), Direction.SOUTH.toString(),
 					Direction.EAST.toString(), Direction.WEST.toString(),
 					TOOLBAR_DOWN_MIDDLE, TOOLBAR_HIDDEN },
-				Direction.NORTH.toString()));
+				Direction.NORTH.toString()));*/
 	
 	// Layout preferences
 	public static final String ADD_AFTER_UNCHANGED = "unchanged";
@@ -98,7 +98,7 @@ public class AppPreferences {
 	public static PrefMonitor<String> POKE_WIRE_RADIX1;
 	public static PrefMonitor<String> POKE_WIRE_RADIX2;
 	
-	static {
+	/*static {
 		RadixOption[] radixOptions = RadixOption.OPTIONS;
 		String[] radixStrings = new String[radixOptions.length];
 		for (int i = 0; i < radixOptions.length; i++) {
@@ -108,7 +108,7 @@ public class AppPreferences {
 				radixStrings, RadixOption.RADIX_2.getSaveString()));
 		POKE_WIRE_RADIX2 = create(new PrefMonitorStringOpts("pokeRadix2",
 				radixStrings, RadixOption.RADIX_10_SIGNED.getSaveString()));
-	}
+	}*/
 
 	// Experimental preferences
 	public static final String ACCEL_DEFAULT = "default";
@@ -321,7 +321,7 @@ public class AppPreferences {
 	//
 	// template methods
 	//
-	public static Template getTemplate() {
+	/*public static Template getTemplate() {
 		getPrefs();
 		switch (templateType) {
 		case TEMPLATE_PLAIN: return getPlainTemplate();
@@ -329,14 +329,14 @@ public class AppPreferences {
 		case TEMPLATE_CUSTOM: return getCustomTemplate();
 		default: return getPlainTemplate();
 		}
-	}
+	}*/
 	
 	public static Template getEmptyTemplate() {
 		if (emptyTemplate == null) emptyTemplate = Template.createEmpty();
 		return emptyTemplate;
 	}
 	
-	private static Template getPlainTemplate() {
+	/*private static Template getPlainTemplate() {
 		if (plainTemplate == null) {
 			ClassLoader ld = Startup.class.getClassLoader();
 			InputStream in = ld.getResourceAsStream("resources/logisim/default.templ");
@@ -381,7 +381,7 @@ public class AppPreferences {
 			}
 		}
 		return customTemplate == null ? getPlainTemplate() : customTemplate;
-	}
+	}*/
 	
 	//
 	// recent projects

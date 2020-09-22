@@ -11,11 +11,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import com.cburch.logisim.gui.main.Frame;
+/*import com.cburch.logisim.gui.main.Frame;
 import com.cburch.logisim.gui.opts.OptionsFrame;
 import com.cburch.logisim.gui.prefs.PreferencesFrame;
 import com.cburch.logisim.proj.Project;
-import com.cburch.logisim.proj.ProjectActions;
+import com.cburch.logisim.proj.ProjectActions;*/
 import com.cburch.logisim.util.MacCompatibility;
 
 class MenuFile extends Menu implements ActionListener {
@@ -71,18 +71,18 @@ class MenuFile extends Menu implements ActionListener {
 			add(quit);
 		}
 
-		Project proj = menubar.getProject();
+		//Project proj = menubar.getProject();
 		newi.addActionListener(this);
 		open.addActionListener(this);
-		if (proj == null) {
+		//if (proj == null) {
 			close.setEnabled(false);
 			save.setEnabled(false);
 			saveAs.setEnabled(false);
-		} else {
+		/*} else {
 			close.addActionListener(this);
 			save.addActionListener(this);
 			saveAs.addActionListener(this);
-		}
+		}*/
 		menubar.registerItem(LogisimMenuBar.EXPORT_IMAGE, exportImage);
 		menubar.registerItem(LogisimMenuBar.PRINT, print);
 		prefs.addActionListener(this);
@@ -111,7 +111,7 @@ class MenuFile extends Menu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		Project proj = menubar.getProject();
+		/*Project proj = menubar.getProject();
 		if (src == newi) {
 			ProjectActions.doNew(proj);
 		} else if (src == open) {
@@ -131,6 +131,6 @@ class MenuFile extends Menu implements ActionListener {
 			PreferencesFrame.showPreferences();
 		} else if (src == quit) {
 			ProjectActions.doQuit();
-		}
+		}*/
 	}
 }

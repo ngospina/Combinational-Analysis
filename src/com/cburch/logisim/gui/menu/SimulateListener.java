@@ -3,9 +3,9 @@
 
 package com.cburch.logisim.gui.menu;
 
-import com.cburch.logisim.circuit.CircuitState;
-import com.cburch.logisim.circuit.Simulator;
+/*import com.cburch.logisim.circuit.CircuitState;
+import com.cburch.logisim.circuit.Simulator;*/
 
 public interface SimulateListener {
-	public void stateChangeRequested(Simulator sim, CircuitState state);
+	/*public void stateChangeRequested(Simulator sim, CircuitState state);*/
 }
