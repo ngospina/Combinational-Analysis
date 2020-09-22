@@ -1,2 +1,2 @@
-# CombinationalAnalysis
+# Combinational Analysis
 Combinational Analysis
